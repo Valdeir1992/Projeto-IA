@@ -8,6 +8,8 @@ public abstract class AbstractEnemy : MonoBehaviour
 
     [SerializeField] private EnemyData _data;
 
+    public EnemyData Data { get => _data; }
+
     private void Awake()
     {
         _currentLife = _data.LifeMax;
@@ -15,7 +17,7 @@ public abstract class AbstractEnemy : MonoBehaviour
 
     public abstract void Move(Vector3 direction);
 
-    public abstract void Attack(Vector3 direction);
+    public abstract bool Attack();
 
     public void TakeDamage(float amount)
     {
